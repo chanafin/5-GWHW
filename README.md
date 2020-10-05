@@ -1,10 +1,15 @@
 
-Mice Cancer Treatment Studies - This represents an introduction in how Python and Pandas can be useful tools when it comes to statistical and graphical analysis. The goal is to draw insights from cancer treatment data, apply statistical helpful visualizations. 
+Mice Cancer Treatment Studies - This represents an introduction in how Python and Pandas can be useful tools when it comes to statistical and graphical analysis. The goal is to draw insights from cancer treatment data and apply statistical helpful visualizations. 
 
 Before the visuals are constructed, it is important to study the data after it is read in to the notebook. After sorting the values of each mouse by their ID, it is apparent that data has duplicates. Using .duplicated() to identify the duplicate mouse, the mouse is then removed from the DataFrame.
 
 A summary statistics table is created by calculating the mean, median, variance, standard deviation & standard error for each drug type using a groupby and python functions. The data is then compiled into a DataFrame.
 
+The next step is to create a series of graphs that are insightful and could be used in a presentation. The goal is to accomplish the same graph twice using pyplot and pandas. The first graph shown is depicts which drugs are used most frequently. Using .value_counts() and sorting will give you the values, followed by .plot.The pyplot graph takes the keys of the drugfreq DataFrame whereas the values are pulled from each individual index within drugfreq.The next task is to visualize the Trial mouse distribution by Sex. By calculating the nunique() of male and female mice and loading those values into a DataFrame, creating the pie is relatively straightforward.
+
+Four treatment regiments require further exploration. Using .quantile, the goal is to extract the quartiles and expose outliers through a boxplot. After grouping by MouseID, the final tumor volume is captured through the .nth() function. Once there is a dataframe which captures the final tumor volume, 4 separate DataFrames are created for each treatment. We then calculate both upper/lower quartiles, the IQR, the median and the upper & lower bounds. We create a final dataFrame for each treatments that captures outliers, if they exist. The 4 dataFrames are then uploaded into a boxplot. It's now clear through this visualuzation that Ramicane and Capomulin are proven to have the lowest Tumor Volumes, whereas Infubinol is less effective and has an outlier and Ceftamin both have a higher IQR.  
+
+The last goal is to drill down on a specific drug regimen and more specifically, an individual mouse treated with that regimen. A new table is created that filters the original dataFrame by the drug that the user wishes to explore. All mice within that Drug regimen are presented.The user is then prompted to enter a specific Mouse ID from within that Drug Regimen. That specific Mouse's Tumor Growth over time will then be graphically presented. A scatter plot is then created to show average tumor volume against mouse weight for all mice within the specific drug regimen selected earler. The linear regression model and correlation coefficient for mouse weight versus tumor volume for the selected regimen is calculated and then graphically displayed.
 
 
 
